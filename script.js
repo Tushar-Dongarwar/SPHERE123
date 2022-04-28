@@ -13,7 +13,7 @@ const normalTextureMars = textureLoader.load('./mars.jpeg')
 const normalTextureVenus = textureLoader.load('./venus.jpeg')
 const normalTextureNeptune = textureLoader.load('./neptune.jpeg')
 const normalTextureUranus = textureLoader.load('./uranus.jpeg')
-const normalTextureString = textureLoader.load('./string.jpeg')
+const normalTextureSaturnring = textureLoader.load('./saturnring.jpeg')
 
 
 // Debug

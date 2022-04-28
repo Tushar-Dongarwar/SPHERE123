@@ -5,6 +5,15 @@ const textureLoader = new THREE.TextureLoader()
 
 const normalTexture = textureLoader.load('./earth.jpeg')
 const normalTextureSUN = textureLoader.load('./sun.jpeg')
+const normalTextureJupiter = textureLoader.load('./jupiter.jpeg')
+const normalTextureSaturn = textureLoader.load('./saturn.jpeg')
+const normalTextureMercury = textureLoader.load('./mercury.jpeg')
+const normalTextureMars = textureLoader.load('./mars.jpeg')
+const normalTextureVenus = textureLoader.load('./venus.jpeg')
+const normalTextureNeptune = textureLoader.load('./neptune.jpeg')
+const normalTextureUranus = textureLoader.load('./uranus.jpeg')
+const normalTextureString = textureLoader.load('./string.jpeg')
+
 
 // Debug
 
@@ -16,16 +25,88 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 // Objects
-const SUNgeometry = new THREE.SphereBufferGeometry(.4, 64, 64)
-const EARTHgeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
+const SUNgeometry = new THREE.SphereBufferGeometry(.9, 64, 64)
+const EARTHgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
+const Jupitergeometry = new THREE.SphereBufferGeometry(.6, 64, 64)
+const Saturngeometry = new THREE.SphereBufferGeometry(.25, 64, 64)
+const Mercurygeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
+const Marsgeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
+const Venusgeometry = new THREE.SphereBufferGeometry(.3, 64, 64)
+const Neptunegeometry = new THREE.SphereBufferGeometry(.4, 64, 64)
+const Uranusgeometry = new THREE.SphereBufferGeometry(.45, 64, 64)
+const Stringgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
+
 
 // Materials
 
 const EARTHmaterial = new THREE.MeshStandardMaterial()
 EARTHmaterial.metalness = 0
-EARTHmaterial.roughness = 0.4
+EARTHmaterial.roughness = 0.3
+EARTHmaterial.opacity = 0.9
 EARTHmaterial.map = normalTexture;
 
+const sphereEARTH = new THREE.Mesh(EARTHgeometry,EARTHmaterial)
+
+const Jupitermaterial = new THREE.MeshStandardMaterial()
+Jupitermaterial.metalness = 0
+Jupitermaterial.roughness = 0.3
+Jupitermaterial.opacity = 0.9
+Jupitermaterial.map = normalTexture;
+
+const sphereJupiter = new THREE.Mesh(Jupitergeometry,Jupitermaterial)
+
+const Saturnmaterial = new THREE.MeshStandardMaterial()
+Saturnmaterial.metalness = 0
+Saturnmaterial.roughness = 0.3
+Saturnmaterial.opacity = 0.9
+Saturnmaterial.map = normalTexture;
+
+const sphereSaturn = new THREE.Mesh(Saturngeometry,Saturnmaterial)
+
+constMercurymaterial = new THREE.MeshStandardMaterial()
+Mercurymaterial.metalness = 0
+Mercurymaterial.roughness = 0.3
+Mercurymaterial.opacity = 0.9
+Mercurymaterial.map = normalTexture;
+
+const sphereMercury = new THREE.Mesh(Mercurygeometry,Mercurymaterial)
+
+const Marsmaterial = new THREE.MeshStandardMaterial()
+Marsmaterial.metalness = 0
+Marsmaterial.roughness = 0.3
+Marsmaterial.opacity = 0.9
+Marsmaterial.map = normalTexture;
+
+const sphereMars = new THREE.Mesh(Marsgeometry,Marsmaterial)
+
+const Venusmaterial = new THREE.MeshStandardMaterial()
+Venusmaterial.metalness = 0
+Venusmaterial.roughness = 0.3
+Venusmaterial.opacity = 0.9
+Venusmaterial.map = normalTexture;
+
+const sphereVenus = new THREE.Mesh(Venusgeometry,Venusmaterial)
+
+const Neptunematerial = new THREE.MeshStandardMaterial()
+Neptunematerial.metalness = 0
+Neptunematerial.roughness = 0.3
+Neptunematerial.opacity = 0.9
+Neptunematerial.map = normalTexture;
+
+const sphereNeptune = new THREE.Mesh(Neptunegeometry,Neptunematerial)
+
+constUranusmaterial = new THREE.MeshStandardMaterial()
+Uranusmaterial.metalness = 0
+Uranusmaterial.roughness = 0.3
+Uranusmaterial.opacity = 0.9
+Uranusmaterial.map = normalTexture;
+
+const sphereUranus = new THREE.Mesh(Uranusgeometry,Uranusmaterial)
+
+const Stringmaterial = new THREE.MeshStandardMaterial()
+Stringmaterial.map = normalTexture;
+
+const sphereJupiter = new THREE.Mesh(Stringgeometry,Stringmaterial)
 
 const SUNmaterial = new THREE.MeshStandardMaterial()
 SUNmaterial.transparent = true
@@ -35,11 +116,9 @@ SUNmaterial.roughness = 0.3
 SUNmaterial.map = normalTextureSUN;
 SUNmaterial.color = new THREE.Color( 0xfff917 )
 
+const sphereSUN = new THREE.Mesh(SUNgeometry,SUNmaterial)
 
 // Mesh
-const sphereEARTH = new THREE.Mesh(EARTHgeometry,EARTHmaterial)
-
-
 const sphere = new THREE.Mesh(SUNgeometry,SUNmaterial)
 scene.add(sphere)
 sphere.add(sphereEARTH)

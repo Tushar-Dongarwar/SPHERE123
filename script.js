@@ -130,8 +130,8 @@ SUNmaterial.color = new THREE.Color( 0xfff917 )
 const sphereSUN = new THREE.Mesh(SUNgeometry,SUNmaterial)
 
 // Mesh
-const sphere = new THREE.Mesh(SUNgeometry,SUNmaterial)
-scene.add(sphere)
+//const sphere = new THREE.Mesh(SUNgeometry,SUNmaterial)
+//scene.add(sphere)
 scene.add(sphereEARTH)
 scene.add(sphereSUN)
 //sphereEARTH.add(sphereMoon)

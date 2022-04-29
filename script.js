@@ -1,6 +1,6 @@
 const textureLoader = new THREE.TextureLoader()
 
-const normalTexture = textureLoader.load('./earth.jpeg')
+const normalTextureEarth = textureLoader.load('./earth.jpeg')
 const normalTextureSUN = textureLoader.load('./sun.jpeg')
 const normalTextureJupiter = textureLoader.load('./jupiter.jpeg')
 const normalTextureSaturn = textureLoader.load('./saturn.jpeg')
@@ -17,7 +17,7 @@ const canvas = document.querySelector('canvas.webgl')
 const scene = new THREE.Scene()
 
 const SUNgeometry = new THREE.SphereBufferGeometry(.9, 64, 64)
-const EARTHgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
+const Earthgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
 const Jupitergeometry = new THREE.SphereBufferGeometry(.6, 64, 64)
 const Saturngeometry = new THREE.SphereBufferGeometry(.25, 64, 64)
 const Mercurygeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
@@ -88,9 +88,9 @@ SaturnMaterial.roughness = 0.4
 SaturnMaterial.map = normaltextureSaturn;
 const sphereSaturn = new THREE.Mesh(Saturngeometry,SaturnMaterial)
 
-const SaturnRingMaterial = new THREE.MeshBasicMaterial()
-SaturnRingMaterial.map = normaltextureSaturnRing;
-const sphereSaturnRing = new THREE.Mesh(SaturnRinggeometry,SaturnRingMaterial)
+const SaturnringMaterial = new THREE.MeshBasicMaterial()
+SaturnringMaterial.map = normaltextureSaturnring;
+const sphereSaturnring = new THREE.Mesh(Saturnringgeometry,SaturnringMaterial)
 
 
 // Mesh
@@ -98,7 +98,7 @@ const sphere = new THREE.Mesh(Sungeometry,Sunmaterial)
 scene.add(sphere)
 scene.add(sphereEarth)
 scene.add(sphereSaturn)
-sphereSaturn.add(sphereSaturnRing)
+sphereSaturn.add(sphereSaturnring)
 scene.add(sphereMercury)
 scene.add(sphereVenus)
 scene.add(sphereMars)

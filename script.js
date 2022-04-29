@@ -115,7 +115,7 @@ const sphereUranus = new THREE.Mesh(Uranusgeometry,Uranusmaterial)
 const Saturnringmaterial = new THREE.MeshStandardMaterial()
 Saturnringmaterial.map = normalTexture;
 
-const sphereJupiter = new THREE.Mesh(Stringgeometry,Stringmaterial)
+const sphereSaturnring = new THREE.Mesh(Saturnringgeometry,Saturnringmaterial)
 
 const SUNmaterial = new THREE.MeshStandardMaterial()
 SUNmaterial.transparent = true

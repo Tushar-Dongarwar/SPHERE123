@@ -36,7 +36,7 @@ const Marsgeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
 const Venusgeometry = new THREE.SphereBufferGeometry(.3, 64, 64)
 const Neptunegeometry = new THREE.SphereBufferGeometry(.4, 64, 64)
 const Uranusgeometry = new THREE.SphereBufferGeometry(.45, 64, 64)
-const Stringgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
+const Saturnringgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
 
 
 // Materials
@@ -130,7 +130,17 @@ const sphereSUN = new THREE.Mesh(SUNgeometry,SUNmaterial)
 // Mesh
 const sphere = new THREE.Mesh(SUNgeometry,SUNmaterial)
 scene.add(sphere)
-sphere.add(sphereEARTH)
+scene.add(sphereEARTH)
+scene.add(sphereSUN)
+scene.add(sphereMoon)
+scene.add(sphereJupiter)
+scene.add(sphereSaturn)
+scene.add(Saturnring)
+scene.add(sphereMercury)
+scene.add(sphereMars)
+scene.add(sphereVenus)
+scene.add(sphereNeptune)
+scene.add(sphereUranus)
 
 // Lights
 
@@ -271,7 +281,55 @@ const tick = () =>
     sphereEARTH.rotation.y += .5 * (targetX - sphereEARTH.rotation.y)
     sphereEARTH.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
     sphereEARTH.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
-    
+ 
+    sphereMoon.position.y = -1
+    sphereMoon.rotation.y = .5 * elapsedTime
+    sphereMoon.rotation.y += .5 * (targetX - sphereMoon.rotation.y)
+    sphereMoon.rotation.x += .05 * (targetY - sphereMoon.rotation.x)
+    sphereMoon.position.z += -.05 * (targetY - sphereMoon.rotation.x)
+ 
+    sphereJupiter.position.y = -1
+    sphereJupiter.rotation.y = .5 * elapsedTime
+    sphereJupiter.rotation.y += .5 * (targetX - sphereJupiter.rotation.y)
+    sphereJupiter.rotation.x += .05 * (targetY - sphereJupiter.rotation.x)
+    sphereJupiter.position.z += -.05 * (targetY - sphereJupiter.rotation.x)
+ 
+    sphereMercury.position.y = -1
+    sphereMercury.rotation.y = .5 * elapsedTime
+    sphereMercury.rotation.y += .5 * (targetX - sphereMercury.rotation.y)
+    sphereMercury.rotation.x += .05 * (targetY - sphereMercury.rotation.x)
+    sphereMercury.position.z += -.05 * (targetY - sphereMercury.rotation.x)
+ 
+    sphereSaturn.position.y = -1
+    sphereSaturn.rotation.y = .5 * elapsedTime
+    sphereSaturn.rotation.y += .5 * (targetX - sphereSaturn.rotation.y)
+    sphereSaturn.rotation.x += .05 * (targetY - sphereSaturn.rotation.x)
+    sphereSaturn.position.z += -.05 * (targetY - sphereSaturn.rotation.x)
+ 
+    sphereMars.position.y = -1
+    sphereMars.rotation.y = .5 * elapsedTime
+    sphereMars.rotation.y += .5 * (targetX - sphereMars.rotation.y)
+    sphereMars.rotation.x += .05 * (targetY - sphereMars.rotation.x)
+    sphereMars.position.z += -.05 * (targetY - sphereMars.rotation.x)
+ 
+    sphereVenus.position.y = -1
+    sphereVenus.rotation.y = .5 * elapsedTime
+    sphereVenus.rotation.y += .5 * (targetX - sphereVenus.rotation.y)
+    sphereVenus.rotation.x += .05 * (targetY - sphereVenus.rotation.x)
+    sphereVenus.position.z += -.05 * (targetY - sphereVenus.rotation.x)
+ 
+    sphereNeptune.position.y = -1
+    sphereNeptune.rotation.y = .5 * elapsedTime
+    sphereNeptune.rotation.y += .5 * (targetX - sphereNeptune.rotation.y)
+    sphereNeptune.rotation.x += .05 * (targetY - sphereNeptune.rotation.x)
+    sphereNeptune.position.z += -.05 * (targetY - sphereNeptune.rotation.x)
+ 
+    sphereUranus.position.y = -1
+    sphereUranus.rotation.y = .5 * elapsedTime
+    sphereUranus.rotation.y += .5 * (targetX - sphereUranus.rotation.y)
+    sphereUranus.rotation.x += .05 * (targetY - sphereUranus.rotation.x)
+    sphereUranus.position.z += -.05 * (targetY - sphereUranus.rotation.x)
+ 
     
     // Update Orbital Controls
     // controls.update()

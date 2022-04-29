@@ -55,6 +55,8 @@ Jupitermaterial.roughness = 0.3
 Jupitermaterial.opacity = 0.9
 Jupitermaterial.map = normalTexture;
 
+const sphereJupiter = new THREE.MeshStandardMaterial()
+
 //const Moonmaterial = new THREE.MeshStandardMaterial()
 //Moonmaterial.metalness = 0
 //Moonmaterial.roughness = 0.3

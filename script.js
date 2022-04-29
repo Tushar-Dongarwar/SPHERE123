@@ -5,7 +5,6 @@ const textureLoader = new THREE.TextureLoader()
 
 const normalTexture = textureLoader.load('./earth.jpeg')
 const normalTextureSUN = textureLoader.load('./sun.jpeg')
-//const normalTextureMoon = textureLoader.load('./moon.jpeg')
 const normalTextureJupiter = textureLoader.load('./jupiter.jpeg')
 const normalTextureSaturn = textureLoader.load('./saturn.jpeg')
 const normalTextureMercury = textureLoader.load('./mercury.jpeg')
@@ -28,7 +27,6 @@ const scene = new THREE.Scene()
 // Objects
 const SUNgeometry = new THREE.SphereBufferGeometry(.9, 64, 64)
 const EARTHgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
-//const Moongeometry = new THREE.SphereBufferGeometry(.1, 64, 64)
 const Jupitergeometry = new THREE.SphereBufferGeometry(.6, 64, 64)
 const Saturngeometry = new THREE.SphereBufferGeometry(.25, 64, 64)
 const Mercurygeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
@@ -56,15 +54,6 @@ Jupitermaterial.opacity = 0.9
 Jupitermaterial.map = normalTexture;
 
 const sphereJupiter = new THREE.MeshStandardMaterial()
-
-//const Moonmaterial = new THREE.MeshStandardMaterial()
-//Moonmaterial.metalness = 0
-//Moonmaterial.roughness = 0.3
-//Moonmaterial.opacity = 0.9
-//Moonmaterial.map = normalTexture;
-
-
-//const sphereMoon = new THREE.Mesh(Moongeometry,moonmaterial)
 
 const Saturnmaterial = new THREE.MeshStandardMaterial()
 Saturnmaterial.metalness = 0

@@ -1,32 +1,31 @@
 const textureLoader = new THREE.TextureLoader()
 
-const normalTexture = textureLoader.load('./8k_earth.jpg')
-const normalTextureSun = textureLoader.load('./8k_sun.jpg')
-const normaltextureMercury = textureLoader.load('./8k_mercury.jpg')
-const normaltextureSaturnRing = textureLoader.load('./8k_saturn_ring_alpha.png')
-const normaltextureVenus = textureLoader.load('./8k_venus_surface.jpg')
-const normaltextureSaturn = textureLoader.load('./8k_saturn.jpg')
-const normaltextureMars = textureLoader.load('./8k_mars.jpg')
-const normaltextureJupiter = textureLoader.load('./8k_jupiter.jpg')
-const normaltextureUranus = textureLoader.load('./2k_uranus.jpg')
-const normaltextureNeptune = textureLoader.load('./2k_neptune.jpg')
-
+const normalTexture = textureLoader.load('./earth.jpeg')
+const normalTextureSUN = textureLoader.load('./sun.jpeg')
+const normalTextureJupiter = textureLoader.load('./jupiter.jpeg')
+const normalTextureSaturn = textureLoader.load('./saturn.jpeg')
+const normalTextureMercury = textureLoader.load('./mercury.jpeg')
+const normalTextureMars = textureLoader.load('./mars.jpeg')
+const normalTextureVenus = textureLoader.load('./venus.jpeg')
+const normalTextureNeptune = textureLoader.load('./neptune.jpeg')
+const normalTextureUranus = textureLoader.load('./uranus.jpeg')
+const normalTextureSaturnring = textureLoader.load('./saturnring.jpeg')
 
 const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
 
-const Sungeometry = new THREE.SphereBufferGeometry(1, 32, 32)
-const Mercurygeometry = new THREE.SphereBufferGeometry(0.25,32,32)
-const Venusgeometry = new THREE.SphereBufferGeometry(0.3,32,32)
-const Earthgeometry = new THREE.SphereBufferGeometry(0.35, 32, 32)
-const Marsgeometry = new THREE.SphereBufferGeometry(0.18, 32, 32)
-const Jupitergeometry = new THREE.SphereBufferGeometry(0.55, 32, 32)
-const Saturngeometry = new THREE.SphereBufferGeometry(0.45, 32, 32)
-const SaturnRinggeometry = new THREE.RingBufferGeometry(0.55,0.70,30)
-const Uranusgeometry = new THREE.SphereBufferGeometry(0.35, 32, 32)
-const Neptunegeometry = new THREE.SphereBufferGeometry(0.3, 32, 32)
+const SUNgeometry = new THREE.SphereBufferGeometry(.9, 64, 64)
+const EARTHgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
+const Jupitergeometry = new THREE.SphereBufferGeometry(.6, 64, 64)
+const Saturngeometry = new THREE.SphereBufferGeometry(.25, 64, 64)
+const Mercurygeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
+const Marsgeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
+const Venusgeometry = new THREE.SphereBufferGeometry(.3, 64, 64)
+const Neptunegeometry = new THREE.SphereBufferGeometry(.4, 64, 64)
+const Uranusgeometry = new THREE.SphereBufferGeometry(.45, 64, 64)
+const Saturnringgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
 
 // Materials
 

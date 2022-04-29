@@ -1,141 +1,114 @@
-
-
-// Loading
 const textureLoader = new THREE.TextureLoader()
 
-const normalTexture = textureLoader.load('./earth.jpeg')
-const normalTextureSUN = textureLoader.load('./sun.jpeg')
-const normalTextureJupiter = textureLoader.load('./jupiter.jpeg')
-const normalTextureSaturn = textureLoader.load('./saturn.jpeg')
-const normalTextureMercury = textureLoader.load('./mercury.jpeg')
-const normalTextureMars = textureLoader.load('./mars.jpeg')
-const normalTextureVenus = textureLoader.load('./venus.jpeg')
-const normalTextureNeptune = textureLoader.load('./neptune.jpeg')
-const normalTextureUranus = textureLoader.load('./uranus.jpeg')
-const normalTextureSaturnring = textureLoader.load('./saturnring.jpeg')
+const normalTexture = textureLoader.load('./8k_earth.jpg')
+const normalTextureSun = textureLoader.load('./8k_sun.jpg')
+const normaltextureMercury = textureLoader.load('./8k_mercury.jpg')
+const normaltextureSaturnRing = textureLoader.load('./8k_saturn_ring_alpha.png')
+const normaltextureVenus = textureLoader.load('./8k_venus_surface.jpg')
+const normaltextureSaturn = textureLoader.load('./8k_saturn.jpg')
+const normaltextureMars = textureLoader.load('./8k_mars.jpg')
+const normaltextureJupiter = textureLoader.load('./8k_jupiter.jpg')
+const normaltextureUranus = textureLoader.load('./2k_uranus.jpg')
+const normaltextureNeptune = textureLoader.load('./2k_neptune.jpg')
 
 
-// Debug
-
-
-// Canvas
 const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
 
-// Objects
-const SUNgeometry = new THREE.SphereBufferGeometry(.9, 64, 64)
-const EARTHgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
-const Jupitergeometry = new THREE.SphereBufferGeometry(.6, 64, 64)
-const Saturngeometry = new THREE.SphereBufferGeometry(.25, 64, 64)
-const Mercurygeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
-const Marsgeometry = new THREE.SphereBufferGeometry(.2, 64, 64)
-const Venusgeometry = new THREE.SphereBufferGeometry(.3, 64, 64)
-const Neptunegeometry = new THREE.SphereBufferGeometry(.4, 64, 64)
-const Uranusgeometry = new THREE.SphereBufferGeometry(.45, 64, 64)
-const Saturnringgeometry = new THREE.SphereBufferGeometry(.5, 64, 64)
-
+const Sungeometry = new THREE.SphereBufferGeometry(1, 32, 32)
+const Mercurygeometry = new THREE.SphereBufferGeometry(0.25,32,32)
+const Venusgeometry = new THREE.SphereBufferGeometry(0.3,32,32)
+const Earthgeometry = new THREE.SphereBufferGeometry(0.35, 32, 32)
+const Marsgeometry = new THREE.SphereBufferGeometry(0.18, 32, 32)
+const Jupitergeometry = new THREE.SphereBufferGeometry(0.55, 32, 32)
+const Saturngeometry = new THREE.SphereBufferGeometry(0.45, 32, 32)
+const SaturnRinggeometry = new THREE.RingBufferGeometry(0.55,0.70,30)
+const Uranusgeometry = new THREE.SphereBufferGeometry(0.35, 32, 32)
+const Neptunegeometry = new THREE.SphereBufferGeometry(0.3, 32, 32)
 
 // Materials
 
-const EARTHmaterial = new THREE.MeshStandardMaterial()
-EARTHmaterial.metalness = 0
-EARTHmaterial.roughness = 0.3
-EARTHmaterial.opacity = 0.9
-EARTHmaterial.map = normalTexture;
+const Earthmaterial = new THREE.MeshStandardMaterial()
+Earthmaterial.roughness = 0.4
+Earthmaterial.opacity = 0.9
+Earthmaterial.map = normalTexture;
 
-const sphereEARTH = new THREE.Mesh(EARTHgeometry,EARTHmaterial)
+const sphereEarth = new THREE.Mesh(Earthgeometry,Earthmaterial)
 
-const Jupitermaterial = new THREE.MeshStandardMaterial()
-Jupitermaterial.metalness = 0
-Jupitermaterial.roughness = 0.3
-Jupitermaterial.opacity = 0.9
-Jupitermaterial.map = normalTexture;
+const Sunmaterial = new THREE.MeshStandardMaterial()
+Sunmaterial.transparent = true
+Sunmaterial.opacity = 0.9
+Sunmaterial.metalness = 0
+Sunmaterial.roughness = 0.3
+Sunmaterial.map = normalTextureSun;
 
-const sphereJupiter = new THREE.MeshStandardMaterial()
-
-const Saturnmaterial = new THREE.MeshStandardMaterial()
-Saturnmaterial.metalness = 0
-Saturnmaterial.roughness = 0.3
-Saturnmaterial.opacity = 0.9
-Saturnmaterial.map = normalTexture;
-
-const sphereSaturn = new THREE.Mesh(Saturngeometry,Saturnmaterial)
+Sunmaterial.color = new THREE.Color( 0xfff917 )
 
 const Mercurymaterial = new THREE.MeshStandardMaterial()
-Mercurymaterial.metalness = 0
-Mercurymaterial.roughness = 0.3
+Mercurymaterial.roughness = 0.4
 Mercurymaterial.opacity = 0.9
-Mercurymaterial.map = normalTexture;
-
+Mercurymaterial.map = normaltextureMercury;
 const sphereMercury = new THREE.Mesh(Mercurygeometry,Mercurymaterial)
 
-const Marsmaterial = new THREE.MeshStandardMaterial()
-Marsmaterial.metalness = 0
-Marsmaterial.roughness = 0.3
-Marsmaterial.opacity = 0.9
-Marsmaterial.map = normalTexture;
-
-const sphereMars = new THREE.Mesh(Marsgeometry,Marsmaterial)
-
 const Venusmaterial = new THREE.MeshStandardMaterial()
-Venusmaterial.metalness = 0
-Venusmaterial.roughness = 0.3
+Venusmaterial.roughness = 0.4
 Venusmaterial.opacity = 0.9
-Venusmaterial.map = normalTexture;
-
+Venusmaterial.map = normaltextureVenus;
 const sphereVenus = new THREE.Mesh(Venusgeometry,Venusmaterial)
 
-const Neptunematerial = new THREE.MeshStandardMaterial()
-Neptunematerial.metalness = 0
-Neptunematerial.roughness = 0.3
-Neptunematerial.opacity = 0.9
-Neptunematerial.map = normalTexture;
+const Marsmaterial = new THREE.MeshStandardMaterial()
+Marsmaterial.roughness = 0.4
+Marsmaterial.opacity = 0.9
+Marsmaterial.map = normaltextureMars;
+const sphereMars = new THREE.Mesh(Marsgeometry,Marsmaterial)
 
-const sphereNeptune = new THREE.Mesh(Neptunegeometry,Neptunematerial)
+const Jupitermaterial = new THREE.MeshStandardMaterial()
+Jupitermaterial.roughness = 0.4
+Jupitermaterial.opacity = 0.9
+Jupitermaterial.map = normaltextureJupiter;
+const sphereJupiter = new THREE.Mesh(Jupitergeometry,Jupitermaterial)
 
 const Uranusmaterial = new THREE.MeshStandardMaterial()
-Uranusmaterial.metalness = 0
-Uranusmaterial.roughness = 0.3
+Uranusmaterial.roughness = 0.4
 Uranusmaterial.opacity = 0.9
-Uranusmaterial.map = normalTexture;
-
+Uranusmaterial.map = normaltextureUranus;
 const sphereUranus = new THREE.Mesh(Uranusgeometry,Uranusmaterial)
 
-const Saturnringmaterial = new THREE.MeshStandardMaterial()
-Saturnringmaterial.map = normalTexture;
+const Neptunematerial = new THREE.MeshStandardMaterial()
+Neptunematerial.roughness = 0.4
+Neptunematerial.opacity = 0.9
+Neptunematerial.map = normaltextureNeptune;
+const sphereNeptune = new THREE.Mesh(Neptunegeometry,Neptunematerial)
 
-const sphereSaturnring = new THREE.Mesh(Saturnringgeometry,Saturnringmaterial)
 
-const SUNmaterial = new THREE.MeshStandardMaterial()
-SUNmaterial.transparent = true
-SUNmaterial.opacity = 0.9
-SUNmaterial.metalness = 0
-SUNmaterial.roughness = 0.3
-SUNmaterial.map = normalTextureSUN;
-SUNmaterial.color = new THREE.Color( 0xfff917 )
+const SaturnMaterial = new THREE.MeshStandardMaterial()
+SaturnMaterial.opacity = 0.9
+SaturnMaterial.roughness = 0.4
+SaturnMaterial.map = normaltextureSaturn;
+const sphereSaturn = new THREE.Mesh(Saturngeometry,SaturnMaterial)
 
-const sphereSUN = new THREE.Mesh(SUNgeometry,SUNmaterial)
+const SaturnRingMaterial = new THREE.MeshBasicMaterial()
+SaturnRingMaterial.map = normaltextureSaturnRing;
+const sphereSaturnRing = new THREE.Mesh(SaturnRinggeometry,SaturnRingMaterial)
+
 
 // Mesh
-//const sphere = new THREE.Mesh(SUNgeometry,SUNmaterial)
-//scene.add(sphere)
-scene.add(sphereEARTH)
-scene.add(sphereSUN)
-//sphereEARTH.add(sphereMoon)
-scene.add(sphereJupiter)
+const sphere = new THREE.Mesh(Sungeometry,Sunmaterial)
+scene.add(sphere)
+scene.add(sphereEarth)
 scene.add(sphereSaturn)
-sphereSaturn.add(sphereSaturnring)
+sphereSaturn.add(sphereSaturnRing)
 scene.add(sphereMercury)
-scene.add(sphereMars)
 scene.add(sphereVenus)
-scene.add(sphereNeptune)
+scene.add(sphereMars)
+scene.add(sphereJupiter)
 scene.add(sphereUranus)
+scene.add(sphereNeptune)
 
-// Lights
 
-const pointLight = new THREE.PointLight(0xffffff, 3)
+const pointLight = new THREE.PointLight(0xffffff, 2)
 pointLight.position.x = 0
 pointLight.position.y = 0
 pointLight.position.z = 0
@@ -144,39 +117,7 @@ scene.add(pointLight)
 const ambientLight = new THREE.AmbientLight(0xffffff, 1)
 scene.add(ambientLight)
 
-//Light 2
 
-// const pointLight2 = new THREE.PointLight(0xff0000, 2)
-// pointLight2.position.set(-1.86,1,-1.65)
-// pointLight2.intensity = 10
-
-// scene.add(pointLight2)
-
-//Light 3
-
-// const pointLight3 = new THREE.PointLight(0xe1ff, 2)
-// pointLight3.position.set(2.13,-3,-1.98)
-// pointLight3.intensity = 6.8
-
-// scene.add(pointLight3)
-
-// const light2Color = {
-//     color: 0xff0000
-// }
-
-// light2.addColor(light2Color, 'color')
-//     .onChange(() =>{
-//         pointLight3.color.set(light2Color.color)
-//     })
-
-// const pointLightHelper2 = new THREE.PointLightHelper(pointLight3, 1)
-// scene.add(pointLightHelper2)
-
-
- 
-/**
- * Sizes
- */
 
 const sizes = {
     width: window.innerWidth,
@@ -244,7 +185,14 @@ function onDocumentMouseMove(event) {
 }
 
 const updateSphere = (event) => {
-    sphere.position.y = window.scrollY * .001
+    sphereMercury.position.y = window.scrollY * .001
+    sphereVenus.position.y = window.scrollY * .001
+    sphereEarth.position.y = window.scrollY * .001
+    sphereMars.position.y = window.scrollY * .001
+    sphereJupiter.position.y = window.scrollY * .001
+    sphereSaturn.position.y = window.scrollY * .001
+    sphereUranus.position.y = window.scrollY * .001
+    sphereNeptune.position.y = window.scrollY * .001
 }
 
 window.addEventListener('scroll', updateSphere);
@@ -261,54 +209,53 @@ const tick = () =>
     const elapsedTime = clock.getElapsedTime()
 
     // Update objects
-    sphere.rotation.z = .5 * elapsedTime
+    sphere.rotation.z = 0.5 * elapsedTime
 
     sphere.rotation.y += .5 * (targetX - sphere.rotation.y)
     sphere.rotation.x += .05 * (targetY - sphere.rotation.x)
     sphere.position.z += -.05 * (targetY - sphere.rotation.x)
-    
-    sphereEARTH.position.y = -1
-    sphereEARTH.rotation.y = .5 * elapsedTime
-    sphereEARTH.rotation.y += .5 * (targetX - sphereEARTH.rotation.y)
-    sphereEARTH.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereEARTH.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
- 
+            
+    sphereEarth.rotation.z = 1.2 * elapsedTime
+    sphereEarth.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereEarth.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereEarth.position.z += -.05 * (targetY - sphereEarth.rotation.x)
+            
     sphereMercury.rotation.z = 1.2 * elapsedTime
-    sphereMercury.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereMercury.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereMercury.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
+    sphereMercury.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereMercury.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereMercury.position.z += -.05 * (targetY - sphereEarth.rotation.x)
             
     sphereVenus.rotation.z = 1.2 * elapsedTime
-    sphereVenus.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereVenus.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereVenus.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
+    sphereVenus.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereVenus.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereVenus.position.z += -.05 * (targetY - sphereEarth.rotation.x)
             
     sphereMars.rotation.z = 1.2 * elapsedTime
-    sphereMars.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereMars.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereMars.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
+    sphereMars.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereMars.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereMars.position.z += -.05 * (targetY - sphereEarth.rotation.x)
             
     sphereJupiter.rotation.z = 1.2 * elapsedTime
-    sphereJupiter.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereJupiter.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereJupiter.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
+    sphereJupiter.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereJupiter.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereJupiter.position.z += -.05 * (targetY - sphereEarth.rotation.x)
  
     sphereSaturn.rotation.z = 1.2 * elapsedTime
-    sphereSaturn.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereSaturn.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereSaturn.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
+    sphereSaturn.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereSaturn.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereSaturn.position.z += -.05 * (targetY - sphereEarth.rotation.x)
             
     sphereUranus.rotation.z = 1.2 * elapsedTime
-    sphereUranus.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereUranus.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereUranus.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
+    sphereUranus.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereUranus.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereUranus.position.z += -.05 * (targetY - sphereEarth.rotation.x)
             
     sphereNeptune.rotation.z = 1.2 * elapsedTime
-    sphereNeptune.rotation.y += .05 * (targetX - sphereEARTH.rotation.y)
-    sphereNeptune.rotation.x += .05 * (targetY - sphereEARTH.rotation.x)
-    sphereNeptune.position.z += -.05 * (targetY - sphereEARTH.rotation.x)
- 
-     const rotMercury = Date.now() * 0.0009;
+    sphereNeptune.rotation.y += .05 * (targetX - sphereEarth.rotation.y)
+    sphereNeptune.rotation.x += .05 * (targetY - sphereEarth.rotation.x)
+    sphereNeptune.position.z += -.05 * (targetY - sphereEarth.rotation.x)
+
+    const rotMercury = Date.now() * 0.0009;
    
     sphereMercury.position.x = 2.5 * Math.cos(rotMercury)
     sphereMercury.position.y = 1.5 * Math.sin(rotMercury)
@@ -322,8 +269,8 @@ const tick = () =>
        
     const rotEarth = Date.now() * 0.0007;
 
-    sphereEARTH.position.x = 5 * Math.cos(rotEarth)
-    sphereEARTH.position.y = 2.5 * Math.sin(rotEarth)
+    sphereEarth.position.x = 5 * Math.cos(rotEarth)
+    sphereEarth.position.y = 2.5 * Math.sin(rotEarth)
 
     const rotMars = Date.now() * 0.0006;
     
@@ -349,8 +296,6 @@ const tick = () =>
     
     sphereNeptune.position.x = 9.7 * Math.cos(rotNeptune)
     sphereNeptune.position.y = 6.7 * Math.sin(rotNeptune)
- 
-    
     
     // Update Orbital Controls
     // controls.update()
@@ -363,5 +308,3 @@ const tick = () =>
 }
 
 tick()
-
-

@@ -72,7 +72,7 @@ Saturnmaterial.map = normalTexture;
 
 const sphereSaturn = new THREE.Mesh(Saturngeometry,Saturnmaterial)
 
-constMercurymaterial = new THREE.MeshStandardMaterial()
+const Mercurymaterial = new THREE.MeshStandardMaterial()
 Mercurymaterial.metalness = 0
 Mercurymaterial.roughness = 0.3
 Mercurymaterial.opacity = 0.9
@@ -104,7 +104,7 @@ Neptunematerial.map = normalTexture;
 
 const sphereNeptune = new THREE.Mesh(Neptunegeometry,Neptunematerial)
 
-constUranusmaterial = new THREE.MeshStandardMaterial()
+const Uranusmaterial = new THREE.MeshStandardMaterial()
 Uranusmaterial.metalness = 0
 Uranusmaterial.roughness = 0.3
 Uranusmaterial.opacity = 0.9
